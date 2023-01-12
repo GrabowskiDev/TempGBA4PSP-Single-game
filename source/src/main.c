@@ -791,21 +791,14 @@ int user_main(int argc, char *argv[])
   gamepak_filename[0] = 0;
 
 
-  strcpy(load_filename, "game.gba");
+  strcpy(load_filename, "roms/game.gba");
 
-  if (load_file(file_ext, load_filename, dir_roms) < 0)
-    {
-      menu();
-    }
-  else
-    {
-      if (load_gamepak(load_filename) < 0)
-      {
-        clear_screen(COLOR32_BLACK);
-        error_msg(MSG[MSG_ERR_LOAD_GAMEPACK], CONFIRMATION_CONT);
-        menu();
-      }
-    }
+  if (load_gamepak(load_filename) < 0)
+  {
+    clear_screen(COLOR32_BLACK);
+    error_msg(MSG[MSG_ERR_LOAD_GAMEPACK], CONFIRMATION_CONT);
+    menu();
+  }
 
 
 
