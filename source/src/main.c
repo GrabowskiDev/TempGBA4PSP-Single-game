@@ -790,6 +790,9 @@ int user_main(int argc, char *argv[])
 
   gamepak_filename[0] = 0;
 
+  strcpy(load_filename, "game");
+  load_gamepak(load_filename);
+
   if (argc > 1)
   {
     if (load_gamepak((char *)argv[1]) < 0)
