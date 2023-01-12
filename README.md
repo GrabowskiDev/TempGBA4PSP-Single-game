@@ -1,13 +1,6 @@
-# TempGBA4PSP-mod
+# TempGBA4PSP-Single-game
 
-Based on this version (TempGBA4PSP-26731020), http://www1.axfc.net/uploader/so/3063963
+Fork of TempGBA4PSP
 
-Added gpsp kai 's cheats function.
-
-Added Chinese language.
-
-Added restore function.
-
-New menu icon.
-
-Impoted code from TempGBA-mod-dstwo-26750220.
+So in this project, I'm trying to modify the TempGBA to launch a specific game at the very beginning, without clicking any buttons.
+This would allow to have multiple instances of TempGBA, each one launching specific GBA game straight from the menu!
