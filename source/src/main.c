@@ -784,7 +784,7 @@ static void setup_main(void)
 int user_main(int argc, char *argv[])
 {
   char load_filename[MAX_FILE];
-  const char *file_ext[] = { ".zip", ".gba", ".bin", ".agb", ".gbz", NULL };
+  //const char *file_ext[] = { ".zip", ".gba", ".bin", ".agb", ".gbz", NULL };
 
   setup_main();
 
@@ -793,13 +793,14 @@ int user_main(int argc, char *argv[])
 
   strcpy(load_filename, "roms/game.gba");
 
+/*
   if (load_gamepak(load_filename) < 0)
   {
     clear_screen(COLOR32_BLACK);
     error_msg(MSG[MSG_ERR_LOAD_GAMEPACK], CONFIRMATION_CONT);
     menu();
   }
-
+*/
 
 
   if (argc > 1)
@@ -813,19 +814,12 @@ int user_main(int argc, char *argv[])
   }
   else
   {
-    if (load_file(file_ext, load_filename, dir_roms) < 0)
+    if (load_gamepak(load_filename) < 0)
     {
+      clear_screen(COLOR32_BLACK);
+      error_msg(MSG[MSG_ERR_LOAD_GAMEPACK], CONFIRMATION_CONT);
       menu();
-    }
-    else
-    {
-      if (load_gamepak(load_filename) < 0)
-      {
-        clear_screen(COLOR32_BLACK);
-        error_msg(MSG[MSG_ERR_LOAD_GAMEPACK], CONFIRMATION_CONT);
-        menu();
-      }
-    }
+    } 
   }
 
   reset_gba();
