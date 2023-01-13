@@ -27,6 +27,10 @@
 #define FONT_CURSOR_DOWN_FILL_GBK  "\xA1\x4A"
 #define FONT_UP_DIRECTORY_GBK      "\xA1\x4B"
 
+#define FONT_ARROW_UP_GBK          "\xA1\xFC"
+#define FONT_ARROW_DOWN_GBK        "\xA1\xFD"
+#define FONT_ARROW_LEFT_GBK        "\xA1\xFB"
+#define FONT_ARROW_RIGHT_GBK       "\xA1\xFA"
 
 void ch_print(const char *str, u16 x, u16 y, u16 col, s16 bg_col, u16 *base_vram, u16 bufferwidth);
 

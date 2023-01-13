@@ -225,16 +225,16 @@
     "Gamepad config",
 
     // MSG_PAD_MENU_0
-    "↑　　 : %s",
+    FONT_ARROW_UP_GBK " :%s",
 
     // MSG_PAD_MENU_1
-    "↓　　 : %s",
+    FONT_ARROW_DOWN_GBK " : %s",
 
     // MSG_PAD_MENU_2
-    "←　　 : %s",
+    FONT_ARROW_LEFT_GBK " : %s",
 
     // MSG_PAD_MENU_3
-    "→　　 : %s",
+    FONT_ARROW_RIGHT_GBK " : %s",
 
     // MSG_PAD_MENU_4
     "○　　 : %s",
