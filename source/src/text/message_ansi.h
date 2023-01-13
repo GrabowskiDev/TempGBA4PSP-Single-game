@@ -9,7 +9,7 @@
 	"ROM Buffer %2dMB",
 
     // MSG_BROWSER_HELP
-    "○:Select  ×:Menu  □:" FONT_UP_DIRECTORY_GBK,
+    FONT_CIRCLE_GBK ":Select  " FONT_CROSS_GBK ":Menu  " FONT_SQUARE_GBK ":" FONT_UP_DIRECTORY_GBK,
 
     // MSG_MENU_DATE_FMT_0
     "%4d/%2d/%2d %-3s %2d:%02d",
@@ -60,43 +60,43 @@
     "Exit TempGBA",
 
     // MSG_MAIN_MENU_HELP_0
-    "○:Load  " FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Select slot",
+    FONT_CIRCLE_GBK ":Load  " FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Select slot",
 
     // MSG_MAIN_MENU_HELP_1
-    "○:Save  " FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Select slot",
+    FONT_CIRCLE_GBK ":Save  " FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Select slot",
 
     // MSG_MAIN_MENU_HELP_2
-    "○:Sub menu  " FONT_R_TRIGGER_GBK ":Shortcut key",
+    FONT_CIRCLE_GBK ":Sub menu  " FONT_R_TRIGGER_GBK ":Shortcut key",
 
     // MSG_MAIN_MENU_HELP_3
-    "○:Save Image  " FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Select image format",
+    FONT_CIRCLE_GBK ":Save Image  " FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Select image format",
 
     // MSG_MAIN_MENU_HELP_4
-    "○:Sub menu",
+    FONT_CIRCLE_GBK ":Sub menu",
 
     // MSG_MAIN_MENU_HELP_5
-    "○:Sub menu",
+    FONT_CIRCLE_GBK ":Sub menu",
 
     // MSG_MAIN_MENU_HELP_6
-    "○:Sub menu",
+    FONT_CIRCLE_GBK ":Sub menu",
 
     // MSG_MAIN_MENU_HELP_CHEAT
-    "○:Select to manage cheats",
+    FONT_CIRCLE_GBK ":Select to manage cheats",
 
     // MSG_MAIN_MENU_HELP_7
-    "○:File browser  " FONT_L_TRIGGER_GBK ":Shortcut key",
+    FONT_CIRCLE_GBK ":File browser  " FONT_L_TRIGGER_GBK ":Shortcut key",
 
     // MSG_MAIN_MENU_HELP_8
-    "○:Reset game",
+    FONT_CIRCLE_GBK ":Reset game",
 
     // MSG_MAIN_MENU_HELP_9
-    "○:Return to game",
+    FONT_CIRCLE_GBK ":Return to game",
 
     // MSG_MAIN_MENU_HELP_10
-    "○:Sleep mode",
+    FONT_CIRCLE_GBK ":Sleep mode",
 
     // MSG_MAIN_MENU_HELP_11
-    "○:Exit",
+    FONT_CIRCLE_GBK ":Exit",
 
     // MSG_OPTION_MENU_TITLE
     "Emulator options",
@@ -180,10 +180,10 @@
     FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Select   emulator",
 
     // MSG_OPTION_MENU_HELP_DEFAULT
-    "○:Restore default settings",
+    FONT_CIRCLE_GBK ":Restore default settings",
 
     // MSG_OPTION_MENU_HELP_11
-    "○:Main menu",
+    FONT_CIRCLE_GBK ":Main menu",
 
     // MSG_STATE_MENU_DATE_FMT_0
     "%4d/%2d/%2d %-3s %2d:%02d:%02d",
@@ -213,13 +213,13 @@
     "Back",
 
     // MSG_STATE_MENU_HELP_0
-    "○:Execute  " FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Select",
+    FONT_CIRCLE_GBK ":Execute  " FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Select",
 
     // MSG_STATE_MENU_HELP_1
-    "○:File browser",
+    FONT_CIRCLE_GBK ":File browser",
 
     // MSG_STATE_MENU_HELP_2
-    "○:Main menu",
+    FONT_CIRCLE_GBK ":Main menu",
 
     // MSG_PAD_MENU_TITLE
     "Gamepad config",
@@ -237,22 +237,22 @@
     FONT_ARROW_RIGHT_GBK " : %s",
 
     // MSG_PAD_MENU_4
-    "○　　 : %s",
+    FONT_CIRCLE_GBK " : %s",
 
     // MSG_PAD_MENU_5
-    "×　　 : %s",
+    FONT_CROSS_GBK " : %s",
 
     // MSG_PAD_MENU_6
-    "□　　 : %s",
+    FONT_SQUARE_GBK " : %s",
 
     // MSG_PAD_MENU_7
-    "△　　 : %s",
+    FONT_TRIANGLE_GBK " : %s",
 
     // MSG_PAD_MENU_8
-    FONT_L_TRIGGER_GBK "　　 : %s",
+    FONT_L_TRIGGER_GBK ": %s",
 
     // MSG_PAD_MENU_9
-    FONT_R_TRIGGER_GBK "　　 : %s",
+    FONT_R_TRIGGER_GBK ": %s",
 
     // MSG_PAD_MENU_10
     "START  : %s",
@@ -267,21 +267,21 @@
     FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Select",
 
     // MSG_PAD_MENU_HELP_1
-    "○:Main menu",
+    FONT_CIRCLE_GBK ":Main menu",
 
     //PADの設定 コンフィグ
 
     // MSG_PAD_MENU_CFG_0
-    "↑",
+    FONT_ARROW_UP_GBK,
 
     // MSG_PAD_MENU_CFG_1
-    "↓",
+    FONT_ARROW_DOWN_GBK,
 
     // MSG_PAD_MENU_CFG_2
-    "←",
+    FONT_ARROW_LEFT_GBK,
 
     // MSG_PAD_MENU_CFG_3
-    "→",
+    FONT_ARROW_RIGHT_GBK,
 
     // MSG_PAD_MENU_CFG_4
     "A",
@@ -335,16 +335,16 @@
     "Analog stick config",
 
     // MSG_A_PAD_MENU_0
-    "Analog ↑ : %s",
+    "Analog " FONT_ARROW_UP_GBK " : %s",
 
     // MSG_A_PAD_MENU_1
-    "Analog ↓ : %s",
+    "Analog " FONT_ARROW_DOWN_GBK " : %s",
 
     // MSG_A_PAD_MENU_2
-    "Analog ← : %s",
+    "Analog " FONT_ARROW_LEFT_GBK " : %s",
 
     // MSG_A_PAD_MENU_3
-    "Analog → : %s",
+    "Analog " FONT_ARROW_RIGHT_GBK " : %s",
 
     // MSG_A_PAD_MENU_4
     "Enable analog input : %s",
@@ -362,7 +362,7 @@
     FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Select",
 
     // MSG_A_PAD_MENU_HELP_2
-    "○:Main menu",
+    FONT_CIRCLE_GBK ":Main menu",
 
 	//MSG_CHEAT_MENU_TITLE,
 	"Cheats options",
@@ -386,10 +386,10 @@
 	FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Activate/deactivate",
 
 	//MSG_CHEAT_MENU_HELP_1,
-	"○:Cheat file browser  "FONT_L_TRIGGER_GBK ":Shortcut key",
+	FONT_CIRCLE_GBK ":Cheat file browser  "FONT_L_TRIGGER_GBK ":Shortcut key",
 
 	//MSG_CHEAT_MENU_HELP_2,
-	"○:Main menu",
+	FONT_CIRCLE_GBK ":Main menu",
 
 	//MSG_CHEAT_MENU_HELP_3,
 	FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Change page",

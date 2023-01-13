@@ -31,6 +31,10 @@
 #define FONT_ARROW_DOWN_GBK        "\xA1\xFD"
 #define FONT_ARROW_LEFT_GBK        "\xA1\xFB"
 #define FONT_ARROW_RIGHT_GBK       "\xA1\xFA"
+#define FONT_CIRCLE_GBK            "\xA1\xF0"
+#define FONT_CROSS_GBK             "\xA3\xF8"
+#define FONT_SQUARE_GBK            "\xA1\xF5"
+#define FONT_TRIANGLE_GBK          "\xA1\xF7"
 
 void ch_print(const char *str, u16 x, u16 y, u16 col, s16 bg_col, u16 *base_vram, u16 bufferwidth);
 
