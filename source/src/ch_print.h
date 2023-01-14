@@ -32,7 +32,7 @@
 #define FONT_ARROW_LEFT_GBK        "\xA1\xFB"
 #define FONT_ARROW_RIGHT_GBK       "\xA1\xFA"
 #define FONT_CIRCLE_GBK            "\xA1\xF0"
-#define FONT_CROSS_GBK             "\xA3\xF8"
+#define FONT_CROSS_GBK             "\xA1\xC1"
 #define FONT_SQUARE_GBK            "\xA1\xF5"
 #define FONT_TRIANGLE_GBK          "\xA1\xF7"
 

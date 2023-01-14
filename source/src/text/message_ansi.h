@@ -225,7 +225,7 @@
     "Gamepad config",
 
     // MSG_PAD_MENU_0
-    FONT_ARROW_UP_GBK " :%s",
+    FONT_ARROW_UP_GBK " : %s",
 
     // MSG_PAD_MENU_1
     FONT_ARROW_DOWN_GBK " : %s",
