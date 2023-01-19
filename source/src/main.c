@@ -714,7 +714,7 @@ static void load_setting_cfg(void)
   if (load_dir_cfg(filename) < 0)
   {
     sprintf(filename, MSG[MSG_ERR_LOAD_DIR_INI], main_path);
-    error_msg(filename, CONFIRMATION_CONT);
+    //error_msg(filename, CONFIRMATION_CONT);
   }
 }
 
@@ -791,7 +791,8 @@ int user_main(int argc, char *argv[])
   gamepak_filename[0] = 0;
 
 
-  strcpy(load_filename, "roms/game.gba");
+  //strcpy(load_filename, "roms/game.gba");
+  sprintf(load_filename, "%sgame.gba", dir_roms);
 
 /*
   if (load_gamepak(load_filename) < 0)
