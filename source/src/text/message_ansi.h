@@ -30,7 +30,7 @@
     "Savestate details " FONT_R_TRIGGER_GBK,
 
     // MSG_MAIN_MENU_3
-    "Screen capture : %s",
+    "Save Screenshot : %s",
 
     // MSG_MAIN_MENU_4
     "Other Settings",
