@@ -32,7 +32,7 @@ PSP_MAIN_THREAD_PARAMS(PRIORITY, STACK_SIZE_KB, ATTRIBUTE);
 PSP_HEAP_SIZE_KB(-800);
 
 
-u32 option_screen_scale = SCALED_X15_GU;
+u32 option_screen_scale = SCALED_USER;
 u32 option_screen_mag = 170;
 u32 option_screen_filter = FILTER_BILINEAR;
 u32 option_sound_volume = 10;
