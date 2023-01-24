@@ -180,10 +180,10 @@
     FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Select",
 
     // MSG_OPTION_MENU_HELP_DEFAULT
-    FONT_CROSS_GBK ":Back  " FONT_CIRCLE_GBK ":Enter  ",
+    "",
 
     // MSG_OPTION_MENU_HELP_11
-    FONT_CROSS_GBK ":Back  " FONT_CIRCLE_GBK ":Enter  ",
+    "",
 
     // MSG_STATE_MENU_DATE_FMT_0
     "%4d/%2d/%2d %-3s %2d:%02d:%02d",
@@ -216,7 +216,7 @@
     FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Select",
 
     // MSG_STATE_MENU_HELP_1
-    FONT_CROSS_GBK ":Back  " FONT_CIRCLE_GBK ":Enter  ",
+    "",
 
     // MSG_STATE_MENU_HELP_2
     "",
