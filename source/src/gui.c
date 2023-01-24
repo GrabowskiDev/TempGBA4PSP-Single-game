@@ -540,10 +540,15 @@ s32 load_file(const char **wildcards, char *result, char *default_dir_name)
 	  else
 		print_string_gbk(batt_str, BATT_STATUS_POS_X, 2, color_batt_life, BG_NO_FILL);
 
+    if(option_button_swap == 0)
+      print_string_gbk(FONT_CROSS_GBK ":Back  " FONT_CIRCLE_GBK ":Enter  ", 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+    else
+      print_string_gbk(FONT_CROSS_GBK ":Enter  " FONT_CIRCLE_GBK ":Back  ", 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+  
 		if (option_language == 0)
-			print_string(MSG[MSG_BROWSER_HELP], 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+			print_string(MSG[MSG_BROWSER_HELP], 145, 258, COLOR_HELP_TEXT, BG_NO_FILL);
 		else
-			print_string_gbk(MSG[MSG_BROWSER_HELP], 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+			print_string_gbk(MSG[MSG_BROWSER_HELP], 145, 258, COLOR_HELP_TEXT, BG_NO_FILL);
 
       char str_buffer_size[32];
       sprintf(str_buffer_size, MSG[MSG_BUFFER], gamepak_ram_buffer_size >> 20);
@@ -1694,7 +1699,7 @@ u32 menu(void)
 	else
 	print_string_gbk(batt_str, BATT_STATUS_POS_X, 2, color_batt_life, BG_NO_FILL);
 
-    //print_string(game_title, 228, 28, COLOR_INACTIVE_ITEM, BG_NO_FILL);
+    print_string("Screenshot:", 228, 28, COLOR_INACTIVE_ITEM, BG_NO_FILL);
     blit_to_screen(screen_image_ptr, GBA_SCREEN_WIDTH, GBA_SCREEN_HEIGHT, SCREEN_IMAGE_POS_X, SCREEN_IMAGE_POS_Y);
 
     //print_string(backup_id, 228, 208, COLOR_INACTIVE_ITEM, BG_NO_FILL);
@@ -1726,10 +1731,16 @@ u32 menu(void)
 			print_string_gbk(line_buffer, MENU_LIST_POS_X, (display_option->line_number * FONTHEIGHT) + 28, (display_option == current_option) ? COLOR_ACTIVE_ITEM : COLOR_INACTIVE_ITEM, BG_NO_FILL);
     }
 
+  if(option_button_swap == 0)
+    print_string_gbk(FONT_CROSS_GBK ":Back  " FONT_CIRCLE_GBK ":Enter  ", 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+  else
+    print_string_gbk(FONT_CROSS_GBK ":Enter  " FONT_CIRCLE_GBK ":Back  ", 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+  
+
 	if (option_language == 0)
-		print_string(MSG[current_option->help_string], 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+		print_string(MSG[current_option->help_string], 145, 258, COLOR_HELP_TEXT, BG_NO_FILL);
 	else
-		print_string_gbk(MSG[current_option->help_string], 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+		print_string_gbk(MSG[current_option->help_string], 145, 258, COLOR_HELP_TEXT, BG_NO_FILL);
 
     // PSP controller - hold
     if (get_pad_input(PSP_CTRL_HOLD) != 0)

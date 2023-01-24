@@ -43,6 +43,7 @@ u32 option_screen_capture_format = 0;
 u32 option_enable_analog = 0;
 u32 option_analog_sensitivity = 4;
 u32 option_language = 0;
+int option_button_swap = 0;
 
 u32 option_frameskip_type = FRAMESKIP_AUTO;
 u32 option_frameskip_value = 9;
@@ -668,6 +669,8 @@ static void init_main(void)
   }
 
   caches_inited = 1;
+
+  sceUtilityGetSystemParamInt(9, &option_button_swap);
 }
 
 
