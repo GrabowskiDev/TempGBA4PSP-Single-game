@@ -122,6 +122,11 @@ u32 enable_tilt_sensor = 0;
 u32 tilt_sensorX = 0x800;
 u32 tilt_sensorY = 0x800;
 
+//button swap vars
+static u32 button_circle;
+static u32 button_cross;
+
+
 static void trigger_key(u32 key);
 
 
@@ -216,10 +221,10 @@ GUI_ACTION_TYPE get_gui_input(void)
     new_button = CURSOR_DEFAULT;
 
   if ((new_buttons & PSP_CTRL_CIRCLE) != 0)
-    new_button = CURSOR_SELECT;
+    new_button = button_circle;
 
   if ((new_buttons & PSP_CTRL_CROSS) != 0)
-    new_button = CURSOR_EXIT;
+    new_button = button_cross;
 
   if ((new_buttons & PSP_CTRL_SQUARE) != 0)
     new_button = CURSOR_BACK;
@@ -392,11 +397,28 @@ u32 update_input(void)
 
 void init_input(void)
 {
+  int button_swap;
+
   sceCtrlSetSamplingCycle(0);
   sceCtrlSetSamplingMode(PSP_CTRL_MODE_ANALOG);
 
   __sceCtrlPeekBufferPositive = sceCtrlPeekBufferPositive;
   __sceCtrlReadBufferPositive = sceCtrlReadBufferPositive;
+
+  sceUtilityGetSystemParamInt(9, &button_swap);
+
+  if (button_swap == 0)
+  {  
+    button_circle = CURSOR_SELECT;
+    button_cross = CURSOR_EXIT;
+  }
+  else
+  {
+    button_circle = CURSOR_EXIT;
+    button_cross = CURSOR_SELECT;
+  }
+
+
 }
 
 void init_input_kernel(void)

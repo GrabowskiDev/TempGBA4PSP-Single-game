@@ -540,10 +540,15 @@ s32 load_file(const char **wildcards, char *result, char *default_dir_name)
 	  else
 		print_string_gbk(batt_str, BATT_STATUS_POS_X, 2, color_batt_life, BG_NO_FILL);
 
+    if(option_button_swap == 0)
+      print_string_gbk(FONT_CROSS_GBK ":Back  " FONT_CIRCLE_GBK ":Enter  ", 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+    else
+      print_string_gbk(FONT_CROSS_GBK ":Enter  " FONT_CIRCLE_GBK ":Back  ", 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+  
 		if (option_language == 0)
-			print_string(MSG[MSG_BROWSER_HELP], 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+			print_string(MSG[MSG_BROWSER_HELP], 145, 258, COLOR_HELP_TEXT, BG_NO_FILL);
 		else
-			print_string_gbk(MSG[MSG_BROWSER_HELP], 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+			print_string_gbk(MSG[MSG_BROWSER_HELP], 145, 258, COLOR_HELP_TEXT, BG_NO_FILL);
 
       char str_buffer_size[32];
       sprintf(str_buffer_size, MSG[MSG_BUFFER], gamepak_ram_buffer_size >> 20);
@@ -1211,7 +1216,7 @@ u32 menu(void)
 
   void menu_default(void)
   {
-	option_screen_scale = SCALED_X15_GU;
+	option_screen_scale = SCALED_USER;
 	option_screen_mag = 170;
 	option_screen_filter = FILTER_BILINEAR;
 	psp_fps_debug = 0;
@@ -1500,7 +1505,7 @@ u32 menu(void)
 
     ACTION_OPTION(menu_default, NULL, MSG[MSG_OPTION_MENU_DEFAULT], MSG_OPTION_MENU_HELP_DEFAULT, 16),
 
-    ACTION_SUBMENU_OPTION(NULL, menu_init, MSG[MSG_OPTION_MENU_11], MSG_OPTION_MENU_HELP_11, 17)
+    //ACTION_SUBMENU_OPTION(NULL, menu_init, MSG[MSG_OPTION_MENU_11], MSG_OPTION_MENU_HELP_11, 17)
   };
 
   MAKE_MENU(emulator, submenu_emulator, NULL);
@@ -1522,7 +1527,7 @@ u32 menu(void)
     NUMERIC_SELECTION_OPTION(reload_cheats_page, MSG[MSG_CHEAT_MENU_3], &menu_cheat_page, MAX_CHEATS_PAGE, MSG_CHEAT_MENU_HELP_3, 11),
     ACTION_OPTION(menu_load_cheat_file, NULL, MSG[MSG_CHEAT_MENU_1], MSG_CHEAT_MENU_HELP_1, 13),
 
-    SUBMENU_OPTION(NULL, MSG[MSG_CHEAT_MENU_2], MSG_CHEAT_MENU_HELP_2, 15)
+    //SUBMENU_OPTION(NULL, MSG[MSG_CHEAT_MENU_2], MSG_CHEAT_MENU_HELP_2, 15)
   };
 
   MAKE_MENU(cheats_misc, submenu_cheats_misc, NULL);
@@ -1542,10 +1547,25 @@ u32 menu(void)
 
     ACTION_OPTION(menu_load_state_file, NULL, MSG[MSG_STATE_MENU_1], MSG_STATE_MENU_HELP_1, 11),
 
-    ACTION_SUBMENU_OPTION(NULL, menu_init, MSG[MSG_STATE_MENU_2], MSG_STATE_MENU_HELP_2, 13)
+    //ACTION_SUBMENU_OPTION(NULL, menu_init, MSG[MSG_STATE_MENU_2], MSG_STATE_MENU_HELP_2, 13)
   };
 
   MAKE_MENU(savestate, submenu_savestate, NULL);
+
+  MenuOptionType analog_config_options[] =
+  {
+    ANALOG_CONFIG_OPTION(MSG[MSG_A_PAD_MENU_0], 0),
+    ANALOG_CONFIG_OPTION(MSG[MSG_A_PAD_MENU_1], 1),
+    ANALOG_CONFIG_OPTION(MSG[MSG_A_PAD_MENU_2], 2),
+    ANALOG_CONFIG_OPTION(MSG[MSG_A_PAD_MENU_3], 3),
+
+    STRING_SELECTION_OPTION(NULL, MSG[MSG_A_PAD_MENU_4], yes_no_options, &option_enable_analog, 2, MSG_A_PAD_MENU_HELP_0, 5),
+    NUMERIC_SELECTION_OPTION(NULL, MSG[MSG_A_PAD_MENU_5], &option_analog_sensitivity, 10, MSG_A_PAD_MENU_HELP_1, 6),
+
+    //ACTION_SUBMENU_OPTION(NULL, menu_init, MSG[MSG_A_PAD_MENU_6], MSG_A_PAD_MENU_HELP_2, 8)
+  };
+
+  MAKE_MENU(analog_config, submenu_analog, NULL);
 
   MenuOptionType gamepad_config_options[] =
   {
@@ -1561,26 +1581,11 @@ u32 menu(void)
     GAMEPAD_CONFIG_OPTION(MSG[MSG_PAD_MENU_9], 9),
     GAMEPAD_CONFIG_OPTION(MSG[MSG_PAD_MENU_10], 10),
     GAMEPAD_CONFIG_OPTION(MSG[MSG_PAD_MENU_11], 11),
-
-    ACTION_SUBMENU_OPTION(NULL, menu_init, MSG[MSG_PAD_MENU_12], MSG_PAD_MENU_HELP_1, 13)
+    SUBMENU_OPTION(&analog_config_menu, MSG[MSG_MAIN_MENU_6], MSG_MAIN_MENU_HELP_6, 13),
+    //ACTION_SUBMENU_OPTION(NULL, menu_init, MSG[MSG_PAD_MENU_12], MSG_PAD_MENU_HELP_1, 15)
   };
 
   MAKE_MENU(gamepad_config, submenu_gamepad, NULL);
-
-  MenuOptionType analog_config_options[] =
-  {
-    ANALOG_CONFIG_OPTION(MSG[MSG_A_PAD_MENU_0], 0),
-    ANALOG_CONFIG_OPTION(MSG[MSG_A_PAD_MENU_1], 1),
-    ANALOG_CONFIG_OPTION(MSG[MSG_A_PAD_MENU_2], 2),
-    ANALOG_CONFIG_OPTION(MSG[MSG_A_PAD_MENU_3], 3),
-
-    STRING_SELECTION_OPTION(NULL, MSG[MSG_A_PAD_MENU_4], yes_no_options, &option_enable_analog, 2, MSG_A_PAD_MENU_HELP_0, 5),
-    NUMERIC_SELECTION_OPTION(NULL, MSG[MSG_A_PAD_MENU_5], &option_analog_sensitivity, 10, MSG_A_PAD_MENU_HELP_1, 6),
-
-    ACTION_SUBMENU_OPTION(NULL, menu_init, MSG[MSG_A_PAD_MENU_6], MSG_A_PAD_MENU_HELP_2, 8)
-  };
-
-  MAKE_MENU(analog_config, submenu_analog, NULL);
 
   MenuOptionType main_options[] =
   {
@@ -1592,23 +1597,23 @@ u32 menu(void)
 
     STRING_SELECTION_ACTION_OPTION(menu_screen_capture, NULL, MSG[MSG_MAIN_MENU_3], image_format_options, &option_screen_capture_format, 2, MSG_MAIN_MENU_HELP_3, 4),
 
-    SUBMENU_OPTION(&emulator_menu, MSG[MSG_MAIN_MENU_4], MSG_MAIN_MENU_HELP_4, 6), 
+    SUBMENU_OPTION(&gamepad_config_menu, MSG[MSG_MAIN_MENU_5], MSG_MAIN_MENU_HELP_5, 6),   
+    
+    SUBMENU_OPTION(&emulator_menu, MSG[MSG_MAIN_MENU_4], MSG_MAIN_MENU_HELP_4, 7), 
 
-    SUBMENU_OPTION(&gamepad_config_menu, MSG[MSG_MAIN_MENU_5], MSG_MAIN_MENU_HELP_5, 7),
+    //SUBMENU_OPTION(&analog_config_menu, MSG[MSG_MAIN_MENU_6], MSG_MAIN_MENU_HELP_6, 8),
 
-    SUBMENU_OPTION(&analog_config_menu, MSG[MSG_MAIN_MENU_6], MSG_MAIN_MENU_HELP_6, 8),
+    SUBMENU_OPTION(&cheats_misc_menu, MSG[MSG_MAIN_MENU_CHEAT], MSG_MAIN_MENU_HELP_CHEAT, 8),
 
-    SUBMENU_OPTION(&cheats_misc_menu, MSG[MSG_MAIN_MENU_CHEAT], MSG_MAIN_MENU_HELP_CHEAT, 10),
+    //ACTION_OPTION(menu_load_file, NULL, MSG[MSG_MAIN_MENU_7], MSG_MAIN_MENU_HELP_7, 11),
 
-    ACTION_OPTION(menu_load_file, NULL, MSG[MSG_MAIN_MENU_7], MSG_MAIN_MENU_HELP_7, 11),
+    ACTION_OPTION(menu_reset, NULL, MSG[MSG_MAIN_MENU_8], MSG_MAIN_MENU_HELP_8, 10),
 
-    ACTION_OPTION(menu_reset, NULL, MSG[MSG_MAIN_MENU_8], MSG_MAIN_MENU_HELP_8, 13),
+    //ACTION_OPTION(menu_exit, NULL, MSG[MSG_MAIN_MENU_9], MSG_MAIN_MENU_HELP_9, 14),
 
-    ACTION_OPTION(menu_exit, NULL, MSG[MSG_MAIN_MENU_9], MSG_MAIN_MENU_HELP_9, 14),
+    //ACTION_OPTION(menu_suspend, NULL, MSG[MSG_MAIN_MENU_10], MSG_MAIN_MENU_HELP_10, 16),
 
-    ACTION_OPTION(menu_suspend, NULL, MSG[MSG_MAIN_MENU_10], MSG_MAIN_MENU_HELP_10, 16),
-
-    ACTION_OPTION(menu_quit, NULL, MSG[MSG_MAIN_MENU_11], MSG_MAIN_MENU_HELP_11, 17)
+    ACTION_OPTION(menu_quit, NULL, MSG[MSG_MAIN_MENU_11], MSG_MAIN_MENU_HELP_11, 12)
   };
 
   MAKE_MENU(main, submenu_main, NULL);
@@ -1694,7 +1699,7 @@ u32 menu(void)
 	else
 	print_string_gbk(batt_str, BATT_STATUS_POS_X, 2, color_batt_life, BG_NO_FILL);
 
-    print_string(game_title, 228, 28, COLOR_INACTIVE_ITEM, BG_NO_FILL);
+    print_string("Screenshot:", 228, 28, COLOR_INACTIVE_ITEM, BG_NO_FILL);
     blit_to_screen(screen_image_ptr, GBA_SCREEN_WIDTH, GBA_SCREEN_HEIGHT, SCREEN_IMAGE_POS_X, SCREEN_IMAGE_POS_Y);
 
     //print_string(backup_id, 228, 208, COLOR_INACTIVE_ITEM, BG_NO_FILL);
@@ -1726,10 +1731,16 @@ u32 menu(void)
 			print_string_gbk(line_buffer, MENU_LIST_POS_X, (display_option->line_number * FONTHEIGHT) + 28, (display_option == current_option) ? COLOR_ACTIVE_ITEM : COLOR_INACTIVE_ITEM, BG_NO_FILL);
     }
 
+  if(option_button_swap == 0)
+    print_string_gbk(FONT_CROSS_GBK ":Back  " FONT_CIRCLE_GBK ":Enter  ", 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+  else
+    print_string_gbk(FONT_CROSS_GBK ":Enter  " FONT_CIRCLE_GBK ":Back  ", 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+  
+
 	if (option_language == 0)
-		print_string(MSG[current_option->help_string], 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+		print_string(MSG[current_option->help_string], 145, 258, COLOR_HELP_TEXT, BG_NO_FILL);
 	else
-		print_string_gbk(MSG[current_option->help_string], 30, 258, COLOR_HELP_TEXT, BG_NO_FILL);
+		print_string_gbk(MSG[current_option->help_string], 145, 258, COLOR_HELP_TEXT, BG_NO_FILL);
 
     // PSP controller - hold
     if (get_pad_input(PSP_CTRL_HOLD) != 0)
@@ -1826,6 +1837,11 @@ u32 menu(void)
         if (current_menu == &main_menu)
         {
           menu_exit();
+        }
+        else if (current_menu == &analog_config_menu)
+        {
+          menu_init();
+          choose_menu(&gamepad_config_menu);
         }
         else
         {
@@ -2272,7 +2288,7 @@ s32 load_config_file(void)
     return 0;
   }
 
-  option_screen_scale = SCALED_X15_GU;
+  option_screen_scale = SCALED_USER;
   option_screen_mag = 170;
   option_screen_filter = FILTER_BILINEAR;
   psp_fps_debug = 0;

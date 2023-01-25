@@ -32,7 +32,7 @@ PSP_MAIN_THREAD_PARAMS(PRIORITY, STACK_SIZE_KB, ATTRIBUTE);
 PSP_HEAP_SIZE_KB(-800);
 
 
-u32 option_screen_scale = SCALED_X15_GU;
+u32 option_screen_scale = SCALED_USER;
 u32 option_screen_mag = 170;
 u32 option_screen_filter = FILTER_BILINEAR;
 u32 option_sound_volume = 10;
@@ -43,6 +43,7 @@ u32 option_screen_capture_format = 0;
 u32 option_enable_analog = 0;
 u32 option_analog_sensitivity = 4;
 u32 option_language = 0;
+int option_button_swap = 0;
 
 u32 option_frameskip_type = FRAMESKIP_AUTO;
 u32 option_frameskip_value = 9;
@@ -668,6 +669,8 @@ static void init_main(void)
   }
 
   caches_inited = 1;
+
+  sceUtilityGetSystemParamInt(9, &option_button_swap);
 }
 
 
@@ -714,7 +717,7 @@ static void load_setting_cfg(void)
   if (load_dir_cfg(filename) < 0)
   {
     sprintf(filename, MSG[MSG_ERR_LOAD_DIR_INI], main_path);
-    error_msg(filename, CONFIRMATION_CONT);
+    //error_msg(filename, CONFIRMATION_CONT);
   }
 }
 
@@ -791,7 +794,8 @@ int user_main(int argc, char *argv[])
   gamepak_filename[0] = 0;
 
 
-  strcpy(load_filename, "roms/game.gba");
+  //strcpy(load_filename, "roms/game.gba");
+  sprintf(load_filename, "%sgame.gba", dir_roms);
 
 /*
   if (load_gamepak(load_filename) < 0)

@@ -34,7 +34,7 @@ const char *message[4][MSG_END] =
 	"ROM Buffer %2dMB",
 
     // MSG_BROWSER_HELP
-    "›:‘I‘ð  ~:ƒƒjƒ…[   :" FONT_UP_DIRECTORY,
+    " :" FONT_UP_DIRECTORY,
 
     // MSG_MENU_DATE_FMT_0
     "%4d/%2d/%2d %-4s %2d:%02d",

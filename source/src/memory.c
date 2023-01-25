@@ -3311,8 +3311,8 @@ static s32 load_game_config(char *gamepak_title, char *gamepak_code, char *gamep
               flash_device_id = FLASH_DEVICE_MACRONIX_128KB;
             }
 
-            // DBZLGCYGOKU2 ¤Î¥×¥í¥Æ¥¯¥È»Ø±Ü
-            // EEPROM_V124¤ÇÌØÊâ¤ÊÎï(¬FÔÚÅÐ„e²»¿É) ¤ÇÖ¸¶¨¤¹¤ì¤Ð„Ó×÷¿É
+            // DBZLGCYGOKU2 ï¿½Î¥×¥ï¿½ï¿½Æ¥ï¿½ï¿½È»Ø±ï¿½
+            // EEPROM_V124ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Fï¿½ï¿½ï¿½Ð„eï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð„ï¿½ï¿½ï¿½ï¿½ï¿½
             if (!strcasecmp(current_variable, "save_type"))
             {
               if (!strcasecmp(current_value, "sram"))
@@ -3403,7 +3403,7 @@ s32 load_gamepak(char *name)
   s32 file_size = -1;
   gamepak_file_large = -1;
 
-  draw_box_alpha(110, 50, 370, 220, 0xBF000000);
+/*   draw_box_alpha(110, 50, 370, 220, 0xBF000000);
   draw_box_line(120, 60, 360, 210, COLOR15_WHITE);
   if (option_language == 0)
 	print_string(MSG[MSG_LOADING_ROM], X_POS_CENTER, 100, COLOR15_WHITE, BG_NO_FILL);
@@ -3415,7 +3415,7 @@ s32 load_gamepak(char *name)
   if (option_language == 0)
 	print_string(MSG[MSG_LOADING_ROM], X_POS_CENTER, 100, COLOR15_WHITE, BG_NO_FILL);
   else
-	print_string_gbk(MSG[MSG_LOADING_ROM], X_POS_CENTER, 100, COLOR15_WHITE, BG_NO_FILL);
+	print_string_gbk(MSG[MSG_LOADING_ROM], X_POS_CENTER, 100, COLOR15_WHITE, BG_NO_FILL); */
 
   scePowerLock(0);
   set_cpu_clock(PSP_CLOCK_333);
@@ -3429,11 +3429,11 @@ s32 load_gamepak(char *name)
   if (!strcasecmp(dot_position, ".gba") || !strcasecmp(dot_position, ".agb") || !strcasecmp(dot_position, ".bin"))
   {
     file_size = load_gamepak_raw(name);
-	if (option_language == 0)
-		print_string(MSG[MSG_SEARCHING_BACKUP_ID], X_POS_CENTER, 148, COLOR15_WHITE, BG_NO_FILL);
-    else
-		print_string_gbk(MSG[MSG_SEARCHING_BACKUP_ID], X_POS_CENTER, 148, COLOR15_WHITE, BG_NO_FILL);
-    flip_screen(1);
+	//if (option_language == 0)
+		//print_string(MSG[MSG_SEARCHING_BACKUP_ID], X_POS_CENTER, 148, COLOR15_WHITE, BG_NO_FILL);
+    //else
+		//print_string_gbk(MSG[MSG_SEARCHING_BACKUP_ID], X_POS_CENTER, 148, COLOR15_WHITE, BG_NO_FILL);
+    //flip_screen(1);
   }
 
   if (file_size > 0)
