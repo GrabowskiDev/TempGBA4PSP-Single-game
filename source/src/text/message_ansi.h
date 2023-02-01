@@ -249,10 +249,10 @@
     FONT_TRIANGLE_GBK " : %s",
 
     // MSG_PAD_MENU_8
-    FONT_L_TRIGGER_GBK ": %s",
+    FONT_L_TRIGGER_GBK " : %s",
 
     // MSG_PAD_MENU_9
-    FONT_R_TRIGGER_GBK ": %s",
+    FONT_R_TRIGGER_GBK " : %s",
 
     // MSG_PAD_MENU_10
     "START  : %s",
