@@ -141,7 +141,7 @@
     "Restore Defaults",
 
     // MSG_OPTION_MENU_11
-    "Back",
+    "Swap Buttons    : %s",
 
     // MSG_OPTION_MENU_HELP_0
     FONT_CURSOR_LEFT_GBK FONT_CURSOR_RIGHT_GBK ":Select",

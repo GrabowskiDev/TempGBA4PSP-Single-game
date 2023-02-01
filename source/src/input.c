@@ -397,7 +397,6 @@ u32 update_input(void)
 
 void init_input(void)
 {
-  int button_swap;
 
   sceCtrlSetSamplingCycle(0);
   sceCtrlSetSamplingMode(PSP_CTRL_MODE_ANALOG);
@@ -405,9 +404,7 @@ void init_input(void)
   __sceCtrlPeekBufferPositive = sceCtrlPeekBufferPositive;
   __sceCtrlReadBufferPositive = sceCtrlReadBufferPositive;
 
-  sceUtilityGetSystemParamInt(9, &button_swap);
-
-  if (button_swap == 0)
+  if (option_button_swap == 0)
   {  
     button_circle = CURSOR_SELECT;
     button_cross = CURSOR_EXIT;

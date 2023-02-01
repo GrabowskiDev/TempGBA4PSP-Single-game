@@ -1230,6 +1230,7 @@ u32 menu(void)
 	option_screen_capture_format = 0;
 	option_enable_analog = 0;
 	option_analog_sensitivity = 4;
+  option_button_swap = 0;
 	//int id_language;
 	sceUtilityGetSystemParamInt(PSP_SYSTEMPARAM_ID_INT_LANGUAGE, &id_language);
 	if (id_language == PSP_SYSTEMPARAM_LANGUAGE_JAPANESE)
@@ -1501,9 +1502,11 @@ u32 menu(void)
 
     STRING_SELECTION_OPTION(NULL, MSG[MSG_OPTION_MENU_9], update_backup_options, &option_update_backup, 2, MSG_OPTION_MENU_HELP_9, 12), 
 
-    STRING_SELECTION_ACTION_OPTION(menu_exit, NULL, MSG[MSG_OPTION_MENU_10], language_option, &option_language, 4, MSG_OPTION_MENU_HELP_10, 14), 
+    STRING_SELECTION_ACTION_OPTION(menu_exit, NULL, MSG[MSG_OPTION_MENU_10], language_option, &option_language, 4, MSG_OPTION_MENU_HELP_10, 14),
 
-    ACTION_OPTION(menu_default, NULL, MSG[MSG_OPTION_MENU_DEFAULT], MSG_OPTION_MENU_HELP_DEFAULT, 16),
+    STRING_SELECTION_OPTION(init_input, MSG[MSG_OPTION_MENU_11], yes_no_options, &option_button_swap, 2, MSG_OPTION_MENU_HELP_11, 15),
+
+    ACTION_OPTION(menu_default, NULL, MSG[MSG_OPTION_MENU_DEFAULT], MSG_OPTION_MENU_HELP_DEFAULT, 17),
 
     //ACTION_SUBMENU_OPTION(NULL, menu_init, MSG[MSG_OPTION_MENU_11], MSG_OPTION_MENU_HELP_11, 17)
   };
