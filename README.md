@@ -9,7 +9,7 @@ This emulator is a modified a version of TempGBA4PSP that allows to launch roms 
 - Download this emulator from the [releases tab](https://github.com/GrabowskiDev/TempGBA4PSP-Single-game/releases)
 - Put you GBA game in roms folder, and name it `game.gba` (It needs to be unzipped)
   - (Note: If you're importing save file or config, put them in respective folders and also name them `game`)
-- Optional: Change the icon and background picture of the PBP to mach the game (You can use [PSP Brew](https://www.brewology.com/downloads/download.php?id=5487&mcid=1) for this but there are also other programs)
+- Optional: Change the icon and background picture of the PBOOT.PBP to mach the game (You can use [PSP Brew](https://www.brewology.com/downloads/download.php?id=5487&mcid=1) for this but there are also other programs)
   - The Main Icon can be 144x80 for rectangle sized image, or 80x80 for square GBA icons (and probably anything between 80-144x80 would work)
   - The Background image should be 480x272 (at least that's what has been working for me)
   - The Background music must be in .AT3 (You can use [this converter](https://www.modconsoles.fr/club-articles.html/pc/at9at3-converter-v23-r36/))
