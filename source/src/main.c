@@ -767,6 +767,7 @@ static void setup_main(void)
     enable_home_menu = 1;
 
   load_config_file();
+  init_input();
 
   setup_callbacks();
   sceImposeSetHomePopup(enable_home_menu ^ 1);

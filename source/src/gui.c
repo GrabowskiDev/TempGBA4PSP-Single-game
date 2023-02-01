@@ -21,7 +21,7 @@
 #include "common.h"
 
 #define GPSP_CONFIG_FILENAME  "tempgba.cfg"
-#define GPSP_CONFIG_NUM       (15 + 16) // options + game pad config
+#define GPSP_CONFIG_NUM       (16 + 16) // options + game pad config
 #define GPSP_GAME_CONFIG_NUM  (7 + 16)
 
 #define COLOR_BG            COLOR15( 3,  5,  8)
@@ -1241,7 +1241,7 @@ u32 menu(void)
 		option_language = 3;
 	else
 		option_language = 1;
-
+  init_input();
   }
 
   void menu_load_cheat_file(void)
@@ -2148,10 +2148,11 @@ s32 save_config_file(void)
     file_options[12]  = option_enable_analog;
     file_options[13]  = option_analog_sensitivity;
     file_options[14] = option_language;
+    file_options[15] = option_button_swap;
 
-    for (i = 0; i < 16; i++)
+    for (i = 0; i < 17; i++)
     {
-      file_options[15 + i] = gamepad_config_map[i];
+      file_options[16 + i] = gamepad_config_map[i];
     }
 
     FILE_WRITE_ARRAY(config_file, file_options);
@@ -2273,10 +2274,11 @@ s32 load_config_file(void)
       option_enable_analog  = file_options[12] % 2;
       option_analog_sensitivity = file_options[13] % 10;
       option_language       = file_options[14] % 4;
+      option_button_swap    = file_options[15] % 2; 
 
-      for (i = 0; i < 16; i++)
+      for (i = 0; i < 17; i++)
       {
-        gamepad_config_map[i] = file_options[15 + i] % (BUTTON_ID_NONE + 1);
+        gamepad_config_map[i] = file_options[16 + i] % (BUTTON_ID_NONE + 1);
 
         if (gamepad_config_map[i] == BUTTON_ID_MENU)
           menu_button = i;
@@ -2302,6 +2304,7 @@ s32 load_config_file(void)
   option_screen_capture_format = 0;
   option_enable_analog = 0;
   option_analog_sensitivity = 4;
+  option_button_swap = 0;
 
   int id_language;
   sceUtilityGetSystemParamInt(PSP_SYSTEMPARAM_ID_INT_LANGUAGE, &id_language);
