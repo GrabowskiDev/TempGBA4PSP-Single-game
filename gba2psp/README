@@ -1,0 +1,67 @@
+GBA2PSP is a utility to automate the process to install GBA games and the
+TempGBA-Single-Game emulator on a PSP.
+
+It can automatically install ICON0/PIC0/PIC1 and SND0.AT3 either via the command
+line or through links from the database gamedb.py.
+Gamedb only contains links to assets for one game so far but
+pull requests to add more links are welcome.
+
+Usage:
+======
+usage: gba2psp.py [-h] [-v] [--psp-game-dir PSP_GAME_DIR] [--icon0 ICON0]
+                  [--pic0 PIC0] [--pic1 PIC1] [--snd0 SND0]
+                  game
+
+positional arguments:
+  game                  GBA image
+
+options:
+  -h, --help            show this help message and exit
+  -v                    Verbose
+  --psp-game-dir PSP_GAME_DIR
+                        Where to install the files (/PSP/GAME on your device)
+  --icon0 ICON0         Image for ICON0
+  --pic0 PIC0           Image for PIC0
+  --pic1 PIC1           Image for PIC1
+  --snd0 SND0           Image for SND0
+
+ICON0/PIC0/PIC1 are either local files containing an image or a hyperlink.
+In the latter case the content of the hyperlink will be downloaded and used as
+the image. Images are scaled to the proper size, converted to PNG and injected
+into PBOOT.PBP
+
+SND0 is an audio file in any format or a http-link to a youtube video.
+In the latter case the youtube video will be downloaded and used.
+The audio will be converted to WAV format using FFMPEG and converted into
+AT3 format using ATRACDENC.
+The Audio will be clamped to a maximum of 60 seconds and 500kb.
+The audio will be set to loop.
+
+PSP-GAME-DIR should point to the PSP/GAME directory on the PSP/VITA.
+
+
+Example 1: (using explicit files/links on the command line)
+./gba2psp.py --psp-game-dir=/run/media/sahlberg/SONY/PSP/GAME --icon0=5ab5e584-1aa4-4de5-a28c-625247156590.jpg --pic1=bf3c3253-21ca-41b1-858f-6cfc0faea960.jpg --snd0=https://www.youtube.com/watch?v=Sqr8lq79jsU&list=PL4sZJNxKabvlY-Fp3ozv7S290bbvvLNQD&index=1 Crash\ Bandicoot\ 2\ -\ N-Tranced\ \(USA\).gba 
+
+Example 2: (using the default links to assets from gamedb.py)
+./gba2psp.py --psp-game-dir=D:/PSP/GAME Crash\ Bandicoot\ 2\ -\ N-Tranced\ \(USA\).gba 
+
+
+Python dependencies:
+====================
+          pip install pillow
+          pip install requests
+          pip install git+https://github.com/nficano/pytube
+
+Dependencies:
+=============
+TempGBA4PSP-Single-game. Download and extract this as a subdirectory in the
+gba2psp directory.
+https://github.com/GrabowskiDev/TempGBA4PSP-Single-game/releases/tag/v2.0
+
+Ffmpeg. Install this utility and make it is reachable through the path.
+
+Atracdenc. Install this utility and make sure that the atracdenc program
+is reachable through path.
+Atracdenc can be found at https://github.com/dcherednik/atracdenc
+
